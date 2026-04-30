@@ -5,7 +5,7 @@ All notable changes to this project.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.13.0] — UNRELEASED
+## [0.13.0] — 2026-04-29
 
 Minor release. Adds a `gemini-cli` adapter so the portable brain works with
 Google's Gemini CLI via its native MCP server extension mechanism.
