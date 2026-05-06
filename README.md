@@ -2,7 +2,7 @@
 
 **Keep one portable memory-and-skills layer across coding-agent harnesses, so switching tools doesn't reset how your agent works.**
 
-A portable `.agent/` folder (memory + skills + protocols) that plugs into Claude Code, Cursor, Windsurf, OpenCode, OpenClaw, Hermes, Pi Coding Agent, Codex, Antigravity, or a DIY Python loop — and keeps its knowledge when you switch.
+A portable `.agent/` folder (memory + skills + protocols) that plugs into Claude Code, Cursor, Windsurf, OpenCode, OpenClaw, Hermes, Pi Coding Agent, Codex, Gemini CLI, Antigravity, or a DIY Python loop — and keeps its knowledge when you switch.
 
 It also includes a local data layer so you can monitor the whole suite of
 agents from one place: harness activity, cron runs, active agents, token/cost
@@ -43,6 +43,26 @@ memory, team brain, skills, instances, transfer, and local dashboard exports.
   interactive keypress navigation are covered by local tests.
 
 See [CHANGELOG.md](CHANGELOG.md) for the full list.
+
+### Fork feature: gemini-cli adapter (branch: feat/gemini-cli)
+
+This fork adds a `gemini-cli` adapter so the portable brain works with Google's
+Gemini CLI via its native MCP server extension mechanism.
+
+- **MCP server bridge.** Exposes `recall`, `memory_reflect`, `learn`, and
+`agentic_status` as MCP tools Gemini CLI can invoke directly.
+- **Custom slash commands.** `/agentic:recall`, `/agentic:learn`,
+`/agentic:status`, `/agentic:reflect`.
+- **Per-harness docs.** See `docs/per-harness/gemini-cli.md` for setup
+instructions including MCP server registration.
+
+Install the fork adapter (requires the `feat/gemini-cli` branch):
+
+```bash
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
+./install.sh gemini-cli /path/to/your-project
+```
 
 ### v0.12.0 — tldraw visual canvas
 
@@ -137,9 +157,21 @@ agentic-stack dashboard
 
 ```bash
 git clone https://github.com/codejunkie99/agentic-stack.git
-cd agentic-stack && ./install.sh claude-code         # mac / linux / git-bash
+cd agentic-stack && ./install.sh claude-code # mac / linux / git-bash
 # or on Windows PowerShell: .\install.ps1 claude-code
 # adapters: claude-code | cursor | windsurf | opencode | openclaw | hermes | pi | codex | standalone-python | antigravity
+```
+
+### Fork adapter: gemini-cli (branch: feat/gemini-cli)
+
+The `gemini-cli` adapter is not on the upstream `master` branch. Install it
+from the fork:
+
+```bash
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
+./install.sh gemini-cli /path/to/your-project
+# or on Windows PowerShell: .\install.ps1 gemini-cli C:\path\to\your-project
 ```
 
 ### Once installed: manage what's wired
@@ -361,7 +393,8 @@ adapters/                       # one small shim per harness, each with adapter.
 ├── pi/            (AGENTS.md + .pi/skills symlink)
 ├── codex/         (AGENTS.md + .agents/skills symlink)
 ├── standalone-python/  (DIY conductor entrypoint)
-└── antigravity/   (ANTIGRAVITY.md)
+└── antigravity/ (ANTIGRAVITY.md)
+└── gemini-cli/ (GEMINI.md + MCP server bridge + custom commands)
 
 harness_manager/                # v0.9.0 manifest-driven Python backend
 ├── schema.py                   # adapter.json validator (path-safe on POSIX + Windows)
@@ -410,6 +443,7 @@ verify_codex_fixes.py           # v0.8.0 regression checks (33 checks)
 | **Codex** | `AGENTS.md` + `.agents/skills/` | no (manual reflect calls) |
 | **Standalone Python** | `run.py` (any LLM) | yes (full control) |
 | **Antigravity** | `ANTIGRAVITY.md` | yes (system context) |
+| **Gemini CLI** | `GEMINI.md` + `.gemini/settings.json` (MCP) | partial (MCP tools, custom commands) |
 
 ## Seed skills
 
