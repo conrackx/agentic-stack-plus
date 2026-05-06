@@ -56,6 +56,14 @@ Gemini CLI via its native MCP server extension mechanism.
 - **Per-harness docs.** See `docs/per-harness/gemini-cli.md` for setup
 instructions including MCP server registration.
 
+Install the fork adapter (requires the `feat/gemini-cli` branch):
+
+```bash
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
+./install.sh gemini-cli /path/to/your-project
+```
+
 ### v0.12.0 — tldraw visual canvas
 
 Minor release. Adds an opt-in `tldraw` seed skill for live canvas diagrams and
@@ -126,7 +134,7 @@ brew install agentic-stack
 # drop the brain into any project — the onboarding wizard runs automatically
 cd your-project
 agentic-stack claude-code
-# or: cursor | windsurf | opencode | openclaw | hermes | pi | codex | standalone-python | antigravity | gemini-cli
+# or: cursor | windsurf | opencode | openclaw | hermes | pi | codex | standalone-python | antigravity
 ```
 
 ### Windows (PowerShell)
@@ -149,9 +157,21 @@ agentic-stack dashboard
 
 ```bash
 git clone https://github.com/codejunkie99/agentic-stack.git
-cd agentic-stack && ./install.sh claude-code         # mac / linux / git-bash
+cd agentic-stack && ./install.sh claude-code # mac / linux / git-bash
 # or on Windows PowerShell: .\install.ps1 claude-code
-# adapters: claude-code | cursor | windsurf | opencode | openclaw | hermes | pi | codex | standalone-python | antigravity | gemini-cli
+# adapters: claude-code | cursor | windsurf | opencode | openclaw | hermes | pi | codex | standalone-python | antigravity
+```
+
+### Fork adapter: gemini-cli (branch: feat/gemini-cli)
+
+The `gemini-cli` adapter is not on the upstream `master` branch. Install it
+from the fork:
+
+```bash
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
+./install.sh gemini-cli /path/to/your-project
+# or on Windows PowerShell: .\install.ps1 gemini-cli C:\path\to\your-project
 ```
 
 ### Once installed: manage what's wired

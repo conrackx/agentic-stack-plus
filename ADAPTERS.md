@@ -33,9 +33,11 @@ bridge exposing `recall`, `memory_reflect`, `learn`, and `agentic_status` as
 tools. Custom slash commands in `.gemini/commands/agentic/`.
 
 Install from the feature branch:
+
 ```bash
-git checkout feat/gemini-cli
-./install.sh gemini-cli
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
+./install.sh gemini-cli /path/to/your-project
 ```
 
 See `docs/per-harness/gemini-cli.md` for MCP server registration instructions.

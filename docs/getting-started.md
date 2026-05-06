@@ -15,9 +15,16 @@ cp /path/to/agentic-stack/install.sh ./
 ## 2. Pick your harness
 
 ```bash
-./install.sh claude-code        # or cursor, windsurf, opencode,
-                                # openclaw, hermes, pi, codex,
-                                # standalone-python, antigravity
+./install.sh claude-code # or cursor, windsurf, opencode,
+# openclaw, hermes, pi, codex,
+# standalone-python, antigravity
+```
+
+For the **gemini-cli** adapter, use the fork instead:
+
+```bash
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus && ./install.sh gemini-cli /path/to/your-project
 ```
 
 Each adapter has its own `README.md` under `adapters/<name>/`.

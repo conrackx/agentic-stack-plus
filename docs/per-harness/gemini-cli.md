@@ -19,15 +19,22 @@ so you keep one knowledge base even if you later swap harnesses.
 
 ## Install
 
+The `gemini-cli` adapter lives on the `feat/gemini-cli` branch of the fork
+(`conrackx/agentic-stack-plus`), not on the upstream `master` branch.
+
 ```bash
 # Install Gemini CLI globally
 npm install -g @google/gemini-cli
 
+# Clone the fork on the correct branch
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
+
 # Install the adapter
-./install.sh gemini-cli
+./install.sh gemini-cli /path/to/your-project
 
 # Install MCP server Node.js dependencies
-cd .gemini/agentic-stack-mcp && npm install --production && cd ../..
+cd /path/to/your-project/.gemini/agentic-stack-mcp && npm install --production && cd /path/to/your-project
 
 # Register the MCP server in gemini-cli settings (see below)
 gemini
@@ -37,10 +44,12 @@ On Windows PowerShell:
 
 ```powershell
 npm install -g @google/gemini-cli
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
 .\install.ps1 gemini-cli C:\path\to\your-project
-cd .gemini\agentic-stack-mcp
+cd C:\path\to\your-project\.gemini\agentic-stack-mcp
 npm install --production
-cd ..\..\..
+cd C:\path\to\your-project
 gemini
 ```
 

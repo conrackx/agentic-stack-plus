@@ -1,15 +1,23 @@
 # Gemini CLI adapter
 
+> **Branch:** `feat/gemini-cli` on the fork
+> `conrackx/agentic-stack-plus`. This adapter is not on the upstream
+> `master` branch.
+
 ## Install
 
 ```bash
-# from the agentic-stack repo root
+# clone the fork on the correct branch
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
 ./install.sh gemini-cli /path/to/your-project
 ```
 
 Or on Windows PowerShell:
 
 ```powershell
+git clone -b feat/gemini-cli https://github.com/conrackx/agentic-stack-plus.git
+cd agentic-stack-plus
 .\install.ps1 gemini-cli C:\path\to\your-project
 ```
 
